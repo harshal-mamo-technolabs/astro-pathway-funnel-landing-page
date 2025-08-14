@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Zodiya Cosmic Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Cosmic color palette */
+    --background: 264 83% 8%;  /* Deep space purple */
+    --foreground: 300 20% 95%;  /* Soft white */
+
+    /* Plan section specific colors */
+    --plan-background: 264 70% 9%;  /* #15092d equivalent */
+    --plan-card: 264 50% 18%;  /* #2c124b equivalent */
+    --plan-card-foreground: 300 20% 95%;
+
+    --card: 264 50% 12%;  /* Dark cosmic purple */
+    --card-foreground: 300 20% 95%;
+
+    --popover: 264 50% 12%;
+    --popover-foreground: 300 20% 95%;
+
+    /* Primary - Mystical purple */
+    --primary: 270 60% 60%;
+    --primary-foreground: 300 20% 95%;
+    --primary-glow: 270 80% 70%;
+
+    /* Secondary - Deep space */
+    --secondary: 264 40% 15%;
+    --secondary-foreground: 300 20% 95%;
+
+    /* Muted - Cosmic background */
+    --muted: 264 30% 20%;
+    --muted-foreground: 300 10% 70%;
+
+    /* Accent - Magenta cosmic energy */
+    --accent: 320 70% 65%;
+    --accent-foreground: 300 20% 95%;
+
+    /* Gold - Star energy */
+    --gold: 45 85% 70%;
+    --gold-foreground: 264 83% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 300 20% 95%;
+
+    --border: 270 30% 25%;
+    --input: 264 40% 15%;
+    --ring: 270 60% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Cosmic gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--background)), hsl(264 60% 12%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(320 80% 75%));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)), hsl(45 90% 80%));
+
+    /* Cosmic animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Cosmic shadows */
+    --shadow-cosmic: 0 8px 32px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-accent: 0 8px 32px hsl(var(--accent) / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-cosmic);
+    min-height: 100vh;
+  }
+
+  /* Typography variants */
+  .font-serif-elegant {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  /* Cosmic button variants */
+  .btn-cosmic {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg;
+    box-shadow: var(--shadow-cosmic);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-cosmic:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent to-pink-400 text-accent-foreground px-6 py-3 rounded-full font-semibold;
+    box-shadow: var(--shadow-accent);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-gold {
+    @apply bg-gradient-to-r from-gold to-yellow-300 text-gold-foreground px-6 py-3 rounded-full font-semibold;
+    transition: var(--transition-smooth);
+  }
+
+  /* Card cosmic variants */
+  .card-cosmic {
+    @apply bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6;
+    box-shadow: var(--shadow-cosmic);
+  }
+
+  .card-plan {
+    @apply bg-card/90 backdrop-blur-md border-2 border-border rounded-2xl p-6 relative overflow-hidden;
+    transition: var(--transition-smooth);
+  }
+
+  .card-plan:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+    border-color: hsl(var(--primary));
+  }
+
+  /* Text cosmic styles */
+  .text-cosmic {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Cosmic animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-star-twinkle {
+    animation: star-twinkle 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(var(--primary-glow) / 0.6); }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}

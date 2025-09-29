@@ -54,14 +54,14 @@ export const SuccessPage = ({ token }: SuccessPageProps) => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="text-foreground">Check your email for your detailed reports</span>
+                <span className="text-foreground">Check your email for login details</span>
               </div>
             </div>
 
             <div className="bg-muted/50 rounded-lg p-4 mt-6">
               <h4 className="font-semibold text-foreground mb-2">What happens next?</h4>
               <ol className="text-sm text-muted-foreground space-y-1 text-left">
-                <li>1. Check your email for your complete birth chart report</li>
+                <li>1. Check your email for login details</li>
                 <li>2. Access your dashboard to explore all features</li>
                 <li>3. Set up notifications for daily cosmic insights</li>
                 <li>4. Join our community of cosmic explorers</li>
@@ -74,10 +74,6 @@ export const SuccessPage = ({ token }: SuccessPageProps) => {
         <div className="space-y-4">
           <Button className="btn-cosmic w-full" onClick={handleAccessDashboard}>
             Access My Dashboard
-          </Button>
-          
-          <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
-            Download Mobile App
           </Button>
         </div>
 

@@ -41,22 +41,22 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
         "Numerology insight",
         "Daily Tarot"
       ],
-      badge: "Then €19.99 weekly"
+      badge: "Then €79.96 every month, auto-renewal"
     },
     {
       id: "premium", 
       name: "PREMIUM",
       label: "HOT OFFER",
-      price: "€14.99",
-      duration: "weekly billed 2 months",
+      price: "€14.99 / week",
+      duration: "Billed €119.92 every 2 months, auto-renewal",
       tagline: "2 months",
       discount: "-10%",
       features: [
-        "All Starter features",
-        "Priority support",
-        "Advanced compatibility reports",
-        "Monthly cosmic forecast",
-        "Personalized meditation guides"
+        "All included starter +",
+        "Synastry report",
+        "Daily transit report",
+        "Moon phase report",
+        "Numerology report"
       ],
       popular: true
     },
@@ -64,17 +64,16 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
       id: "gold",
       name: "GOLD", 
       label: "BEST VALUE",
-      price: "€13.99",
-      duration: "weekly billed 3 months",
+      price: "€13.99 / week",
+      duration: "Billed 167.88€ every 3 month, auto-renewal",
       tagline: "Save 20%",
       discount: "-20%",
-      originalPrice: "€17.49",
       features: [
-        "All Premium features",
-        "1-on-1 astrologer consultation",
-        "Custom ritual recommendations",
-        "Yearly cosmic planning session",
-        "Exclusive community access"
+        "All Premium features +",
+        "Yearly horoscope report",
+        "Yearly synastry report",
+        "Yearly moon phase report",
+        "Yearly numerology report"
       ]
     }
   ];

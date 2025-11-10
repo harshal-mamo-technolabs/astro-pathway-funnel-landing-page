@@ -70,12 +70,29 @@ export const SuccessPage = ({ token }: SuccessPageProps) => {
           </div>
         </Card>
 
+        <Card className="card-cosmic mt-8 mb-8">
+          <div className="text-center space-y-3">
+            <p className="text-sm text-foreground">
+              Your subscription renews automatically based on your selected plan.
+            </p>
+            <p className="text-sm text-foreground">
+              You can manage or cancel anytime in your account settings.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Need help? <a href="mailto:support@zodiya.net" className="text-primary hover:underline">support@zodiya.net</a>
+            </p>
+          </div>
+        </Card>
+
         {/* Action Buttons */}
         <div className="space-y-4">
           <Button className="btn-cosmic w-full" onClick={handleAccessDashboard}>
             Access My Dashboard
           </Button>
         </div>
+
+        {/* Subscription Info */}
+        
 
         {/* Support */}
         <div className="mt-8 text-center">

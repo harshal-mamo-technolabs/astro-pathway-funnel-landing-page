@@ -112,7 +112,7 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
   };
 
   return (
-    <section className="min-h-screen bg-plan-bg px-4 py-20">
+    <section className="min-h-screen bg-plan-bg px-4 pt-8 pb-20">
       <div className="w-full max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -126,7 +126,7 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
 
         {/* Desktop Horizontal Comparison Table */}
         <div className="hidden md:block">
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             {plans.map((plan) => {
               const IconComponent = getPlanIcon(plan.id);
               const isSelected = selectedPlan === plan.id;
@@ -135,19 +135,19 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
               return (
                 <div 
                   key={plan.id}
-                  className={`relative ${isPremium ? 'md:scale-105 md:-mt-4' : ''}`}
+                  className={`relative ${isPremium ? 'md:scale-[1.02] md:-mt-2' : ''}`}
                 >
                   {/* Popular badge */}
                   {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                      <Badge className="bg-gradient-to-r from-accent to-pink-400 text-white px-4 py-2 text-sm font-semibold">
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                      <Badge className="bg-gradient-to-r from-accent to-pink-400 text-white px-3 py-1.5 text-xs font-semibold">
                         MOST POPULAR
                       </Badge>
                     </div>
                   )}
 
                   <div 
-                    className={`bg-plan-card rounded-3xl p-8 border-2 transition-all duration-300 cursor-pointer ${
+                    className={`bg-plan-card rounded-2xl p-5 border-2 transition-all duration-300 cursor-pointer ${
                       isSelected 
                         ? 'border-primary shadow-lg shadow-primary/30' 
                         : 'border-plan-card-foreground/20 hover:border-primary/50'
@@ -155,47 +155,47 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
                     onClick={() => setSelectedPlan(plan.id)}
                   >
                     {/* Plan header */}
-                    <div className="text-center mb-8">
-                      <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 ${
+                    <div className="text-center mb-5">
+                      <div className={`inline-flex items-center justify-center w-14 h-14 rounded-full mb-4 ${
                         plan.id === "starter" ? "bg-gradient-to-r from-primary to-primary-glow" :
                         plan.id === "premium" ? "bg-gradient-to-r from-accent to-pink-400" :
                         "bg-gradient-to-r from-gold to-yellow-300"
                       }`}>
-                        <IconComponent className="w-10 h-10 text-white" />
+                        <IconComponent className="w-7 h-7 text-white" />
                       </div>
                       
-                      <Badge variant="outline" className="mb-4 border-plan-card-foreground/30 text-plan-card-foreground">
+                      <Badge variant="outline" className="mb-3 border-plan-card-foreground/30 text-plan-card-foreground text-xs">
                         {plan.label}
                       </Badge>
                       
-                      <h3 className="font-serif-elegant text-3xl text-plan-card-foreground mb-2">
+                      <h3 className="font-serif-elegant text-2xl text-plan-card-foreground mb-1.5">
                         {plan.name}
                       </h3>
                       
-                      <div className="text-plan-card-foreground/70 mb-4 font-sans">
+                      <div className="text-sm text-plan-card-foreground/70 mb-3 font-sans">
                         {plan.tagline}
                       </div>
                       
                       {/* Pricing */}
-                      <div className="mb-6">
+                      <div className="mb-4">
                         {plan.originalPrice && (
-                          <div className="text-sm text-plan-card-foreground/50 line-through mb-1">
+                          <div className="text-xs text-plan-card-foreground/50 line-through mb-1">
                             {plan.originalPrice}
                           </div>
                         )}
-                        <div className="text-4xl font-bold text-plan-card-foreground mb-2">
+                        <div className="text-3xl font-bold text-plan-card-foreground mb-1.5">
                           {plan.price}
                         </div>
-                        <div className="text-sm text-plan-card-foreground/70 font-sans">
+                        <div className="text-xs text-plan-card-foreground/70 font-sans">
                           {plan.duration}
                         </div>
                         {plan.discount && (
-                          <Badge className="bg-green-500 text-white mt-3">
+                          <Badge className="bg-green-500 text-white mt-2 text-xs">
                             {plan.discount} discount
                           </Badge>
                         )}
                         {plan.badge && (
-                          <div className="text-xs text-plan-card-foreground/60 mt-2 font-sans">
+                          <div className="text-xs text-plan-card-foreground/60 mt-1.5 font-sans">
                             {plan.badge}
                           </div>
                         )}
@@ -203,11 +203,11 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
                     </div>
 
                     {/* Features */}
-                    <div className="space-y-4 mb-8">
+                    <div className="space-y-2.5 mb-5">
                       {plan.features.map((feature, index) => (
-                        <div key={index} className="flex items-center space-x-3">
-                          <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                          <span className="text-sm text-plan-card-foreground font-sans">{feature}</span>
+                        <div key={index} className="flex items-center space-x-2.5">
+                          <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span className="text-xs text-plan-card-foreground font-sans">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -215,7 +215,7 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
                     {/* Select button */}
                     <Button
                       onClick={() => handleSelectPlan(plan)}
-                      className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 ${getPlanButtonClass(plan.id)}`}
+                      className={`w-full py-2.5 rounded-xl font-semibold text-base transition-all duration-300 ${getPlanButtonClass(plan.id)}`}
                     >
                       Select {plan.name}
                     </Button>
@@ -227,7 +227,7 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
         </div>
 
         {/* Mobile Stacked Cards with Expand/Collapse */}
-        <div className="md:hidden space-y-6 mb-12">
+        <div className="md:hidden space-y-4 mb-12">
           {plans.map((plan) => {
             const IconComponent = getPlanIcon(plan.id);
             const isSelected = selectedPlan === plan.id;
@@ -241,8 +241,8 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
               >
                 {/* Popular badge */}
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-gradient-to-r from-accent to-pink-400 text-white px-3 py-1 text-sm">
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-10">
+                    <Badge className="bg-gradient-to-r from-accent to-pink-400 text-white px-2.5 py-1 text-xs">
                       MOST POPULAR
                     </Badge>
                   </div>
@@ -257,30 +257,33 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
                 >
                   {/* Plan header - always visible */}
                   <div 
-                    className="p-6 cursor-pointer"
-                    onClick={() => togglePlanExpansion(plan.id)}
+                    className="p-4 cursor-pointer"
+                    onClick={() => {
+                      setSelectedPlan(plan.id);
+                      togglePlanExpansion(plan.id);
+                    }}
                   >
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                      <div className="flex items-center space-x-3">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                           plan.id === "starter" ? "bg-gradient-to-r from-primary to-primary-glow" :
                           plan.id === "premium" ? "bg-gradient-to-r from-accent to-pink-400" :
                           "bg-gradient-to-r from-gold to-yellow-300"
                         }`}>
-                          <IconComponent className="w-6 h-6 text-white" />
+                          <IconComponent className="w-5 h-5 text-white" />
                         </div>
                         <div>
                           <div className="flex items-center space-x-2 mb-1">
-                            <h3 className="font-serif-elegant text-xl text-plan-card-foreground">
+                            <h3 className="font-serif-elegant text-lg text-plan-card-foreground">
                               {plan.name}
                             </h3>
                             <Badge variant="outline" className="border-plan-card-foreground/30 text-plan-card-foreground text-xs">
                               {plan.label}
                             </Badge>
                           </div>
-                          <div className="text-2xl font-bold text-plan-card-foreground">
+                          <div className="text-xl font-bold text-plan-card-foreground">
                             {plan.price}
-                            <span className="text-sm text-plan-card-foreground/70 ml-2 font-sans">
+                            <span className="text-xs text-plan-card-foreground/70 ml-2 font-sans">
                               {plan.tagline}
                             </span>
                           </div>
@@ -291,9 +294,9 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
                           <span className="text-xs text-plan-card-foreground/60 font-sans">Show details</span>
                         )}
                         {isExpanded ? (
-                          <ChevronUp className="w-5 h-5 text-plan-card-foreground/70" />
+                          <ChevronUp className="w-4 h-4 text-plan-card-foreground/70" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-plan-card-foreground/70" />
+                          <ChevronDown className="w-4 h-4 text-plan-card-foreground/70" />
                         )}
                       </div>
                     </div>
@@ -301,30 +304,30 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
 
                   {/* Expandable content */}
                   {isExpanded && (
-                    <div className="px-6 pb-6">
-                      <div className="border-t border-plan-card-foreground/20 pt-4">
+                    <div className="px-4 pb-4">
+                      <div className="border-t border-plan-card-foreground/20 pt-3">
                         {/* Features */}
-                        <div className="space-y-3 mb-6">
+                        <div className="space-y-2.5 mb-4">
                           {plan.features.map((feature, index) => (
-                            <div key={index} className="flex items-center space-x-3">
-                              <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                              <span className="text-sm text-plan-card-foreground font-sans">{feature}</span>
+                            <div key={index} className="flex items-center space-x-2.5">
+                              <Check className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+                              <span className="text-xs text-plan-card-foreground font-sans">{feature}</span>
                             </div>
                           ))}
                         </div>
 
                         {/* Additional info */}
-                        <div className="mb-6">
-                          <div className="text-sm text-plan-card-foreground/70 font-sans mb-2">
+                        <div className="mb-4">
+                          <div className="text-xs text-plan-card-foreground/70 font-sans mb-1.5">
                             {plan.duration}
                           </div>
                           {plan.discount && (
-                            <Badge className="bg-green-500 text-white mr-2">
+                            <Badge className="bg-green-500 text-white mr-2 text-xs">
                               {plan.discount} discount
                             </Badge>
                           )}
                           {plan.badge && (
-                            <div className="text-xs text-plan-card-foreground/60 mt-2 font-sans">
+                            <div className="text-xs text-plan-card-foreground/60 mt-1.5 font-sans">
                               {plan.badge}
                             </div>
                           )}
@@ -333,7 +336,7 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
                         {/* Select button */}
                         <Button
                           onClick={() => handleSelectPlan(plan)}
-                          className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${getPlanButtonClass(plan.id)}`}
+                          className={`w-full py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${getPlanButtonClass(plan.id)}`}
                         >
                           Select {plan.name}
                         </Button>
@@ -346,8 +349,28 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
           })}
         </div>
 
+        {/* Information Boxes */}
+        <div className="text-center space-y-6 mt-12">
+          <div className="bg-plan-card/50 rounded-2xl p-6 border border-plan-card-foreground/10">
+            <h3 className="font-serif-elegant text-xl text-plan-card-foreground mb-3">
+              Subscriptions renew automatically until canceled.
+            </h3>
+            <p className="text-sm text-plan-card-foreground/70 font-sans">
+              You can cancel anytime from your account settings or by contacting our support team at support@zodiya.net
+            </p>
+          </div>
+
+          {selectedPlan === "starter" && (
+            <div className="bg-plan-card/50 rounded-2xl p-6 border border-plan-card-foreground/10">
+              <h3 className="font-serif-elegant text-xl text-plan-card-foreground mb-3">
+                After the trial period ends, your card will be charged €79.96/month unless you cancel before the trial expires.
+              </h3>
+            </div>
+          )}
+        </div>
+
         {/* Summary and Trust Indicators */}
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-6 mt-6">
           <div className="bg-plan-card/50 rounded-2xl p-6 border border-plan-card-foreground/10">
             <h3 className="font-serif-elegant text-xl text-plan-card-foreground mb-3">
               All plans include full access to your personalized birth chart, daily tarot, and cosmic reports

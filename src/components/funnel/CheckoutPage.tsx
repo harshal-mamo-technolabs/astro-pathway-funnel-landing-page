@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -55,6 +56,12 @@ const InnerPaymentForm = ({ clientSecret, onPaymentSuccess }: { clientSecret: st
       {successMsg && (
         <div className="mb-3 text-sm text-green-500">{successMsg}</div>
       )}
+      <p className="text-xs text-muted-foreground mb-4 text-center">
+        By completing your purchase, you agree to our{" "}
+        <Link to="/terms-of-use" className="text-primary hover:underline">Terms of Use</Link>
+        {" "}and{" "}
+        <Link to="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>
+      </p>
       <Button onClick={handleConfirm} className="w-full btn-cosmic text-lg py-4 mb-4" disabled={!stripe || isPaying}>
         <Lock className="w-5 h-5 mr-2" />
         {isPaying ? "Processing..." : "Complete Payment"}
@@ -132,6 +139,7 @@ export const CheckoutPage = ({ selectedPlan, onPaymentSuccess }: CheckoutPagePro
                     +{selectedPlan.features.length - 4} more features
                   </div>
                 )}
+                
               </div>
             </div>
 
@@ -149,6 +157,9 @@ export const CheckoutPage = ({ selectedPlan, onPaymentSuccess }: CheckoutPagePro
                 <div className="flex items-center space-x-2 text-sm">
                   <Zap className="w-4 h-4 text-primary" />
                   <span className="text-foreground">Cancel anytime</span>
+                </div>
+                <div className="flex items-center space-x-2 text-sm">
+                  <span className="text-foreground">Your subscription will automatically renew every month (or according to your selected billing period) until canceled.</span>
                 </div>
               </div>
             </div>
@@ -196,6 +207,16 @@ export const CheckoutPage = ({ selectedPlan, onPaymentSuccess }: CheckoutPagePro
               </div>
             </div>
           </Card>
+        </div>
+
+        {/* Merchant Information Footer */}
+        <div className="text-center mt-8">
+          <p className="text-xs text-muted-foreground">
+            Merchant: Comparo Media d.o.o., Kastav, Croatia
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Operated under the brand Zodiya
+          </p>
         </div>
       </div>
     </section>

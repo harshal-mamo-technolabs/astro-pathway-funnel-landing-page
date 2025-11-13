@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Star, Download, Calendar, Mail } from "lucide-react";
@@ -15,7 +16,7 @@ export const SuccessPage = ({ token }: SuccessPageProps) => {
     window.location.href = url;
   };
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20" style={{ backgroundColor: '#1c0f2e' }}>
       <div className="w-full max-w-2xl mx-auto text-center">
         {/* Success Icon */}
         <div className="mb-8">
@@ -99,9 +100,11 @@ export const SuccessPage = ({ token }: SuccessPageProps) => {
           <p className="text-sm text-muted-foreground mb-2">
             Questions? Our cosmic support team is here to help
           </p>
-          <Button variant="link" className="text-primary">
-            Contact Support
-          </Button>
+          <Link to="/contact">
+            <Button variant="link" className="text-primary">
+              Contact Support
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { Footer } from "@/components/Footer";
 
-const PrivacyPolicy = () => {
+const TermsOfUse = () => {
   return (
     <div className="min-h-screen bg-plan-bg px-4 py-8 md:py-20">
       <div className="w-full max-w-4xl mx-auto">
@@ -148,9 +149,10 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
 
-export default PrivacyPolicy;
+export default TermsOfUse;
 

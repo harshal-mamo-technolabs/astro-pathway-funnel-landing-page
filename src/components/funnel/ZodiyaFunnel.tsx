@@ -9,6 +9,7 @@ import { AnimatedLoadingScreen } from "./AnimatedLoadingScreen";
 import { PlanSelection, type Plan } from "./PlanSelection";
 import { CheckoutPage } from "./CheckoutPage";
 import { SuccessPage } from "./SuccessPage";
+import { Footer } from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
 
 type FunnelStep = "hero" | "onboarding" | "loading" | "plans" | "checkout" | "success";
@@ -210,6 +211,7 @@ export const ZodiyaFunnel = () => {
             <BirthChartInfo />
             <FeaturesGrid onStartReading={handleStartReading} />
             <TrustSection onStartReading={handleStartReading} />
+            <Footer />
           </>
         );
     }

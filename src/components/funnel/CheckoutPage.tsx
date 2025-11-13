@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Check, Lock, Star, Zap, Shield } from "lucide-react";
+import { Check, Lock, Star, Zap, Shield, RefreshCw } from "lucide-react";
 import type { Plan } from "./PlanSelection";
 import { Elements, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -158,7 +158,8 @@ export const CheckoutPage = ({ selectedPlan, onPaymentSuccess }: CheckoutPagePro
                   <Zap className="w-4 h-4 text-primary" />
                   <span className="text-foreground">Cancel anytime</span>
                 </div>
-                <div className="flex items-center space-x-2 text-sm">
+                <div className="flex items-start space-x-2 text-sm">
+                  <RefreshCw className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                   <span className="text-foreground">Your subscription will automatically renew every month (or according to your selected billing period) until canceled.</span>
                 </div>
               </div>

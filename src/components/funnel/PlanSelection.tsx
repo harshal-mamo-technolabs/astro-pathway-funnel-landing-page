@@ -41,7 +41,7 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
         "Numerology insight",
         "Daily Tarot"
       ],
-      badge: "Then €79.96 every month, auto-renewal"
+      badge: "Then €79.96 every month, auto-renewal unless you cancel before the trial expires."
     },
     {
       id: "premium", 
@@ -359,14 +359,6 @@ export const PlanSelection = ({ onSelectPlan }: PlanSelectionProps) => {
               You can cancel anytime from your account settings or by contacting our support team at support@zodiya.net
             </p>
           </div>
-
-          {selectedPlan === "starter" && (
-            <div className="bg-plan-card/50 rounded-2xl p-6 border border-plan-card-foreground/10">
-              <h3 className="font-serif-elegant text-xl text-plan-card-foreground mb-3">
-                After the trial period ends, your card will be charged €79.96/month unless you cancel before the trial expires.
-              </h3>
-            </div>
-          )}
         </div>
 
         {/* Summary and Trust Indicators */}

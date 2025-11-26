@@ -15,9 +15,9 @@ interface CheckoutPageProps {
 }
 
 const lookupKeyByPlanId: Record<string, string> = {
-  starter: "zodiya_trial",
-  premium: "zodiya_premium",
-  gold: "zodiya_gold",
+  starter: "zodiya_trial_test",
+  premium: "zodiya_premium_test",
+  gold: "zodiya_gold_test",
 };
 
 const InnerPaymentForm = ({ clientSecret, onPaymentSuccess }: { clientSecret: string; onPaymentSuccess: () => void }) => {
